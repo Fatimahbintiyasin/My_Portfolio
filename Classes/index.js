@@ -20,5 +20,5 @@ class Vehicle {
     let car = new Car('blue');
     console.log(car.toString());
     
-    // console.log(car instanceof Car);
-    // console.log(car instanceof Vehicle);
+    console.log(car instanceof Car);
+    console.log(car instanceof Vehicle);
