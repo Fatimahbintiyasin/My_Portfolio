@@ -1,71 +1,46 @@
 <% include partials/header.ejs %>
 
+<!--
+File Name: projectservices.ejs
+Student Name: Fatimah Binti Yasin
+Student ID:  301193282
+Date: Oct 8, 2022-->
+
 <h1><%= title %></h1>
 
    <% if(title == "Projects") { %>
-    <div class="container mt-3">
-        <h2>Projects</h2>
-        <p>The .table-striped class adds zebra-stripes to a table:</p>            
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
-            </tr>
-            <tr>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-            </tr>
-            <tr>
-              <td>July</td>
-              <td>Dooley</td>
-              <td>july@example.com</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                <p class="clearBoth">
+                    <br><h2><u><b>Website for a Real Estate Agent</b></u></h2>
+                    <img src="images/img1.png" width="560" height="345" alt="project1" class="auto-style1"><br>
+                    <br> Designed a responsive, user-oriented marketing website for a local real estate agent to showcase their listings and available properties using HTML5 and CSS3. The website consists of 7 web pages: Home page, 3 property listing pages, available properties for sale, contact form, site map, and credits page. 
+                </p>
+                <p class="clearBoth">
+                    <br><h2><u><b>Banking Application</b></u></h2>
+                    <img src="images/img2.png" width="560" height="345" alt="project2" class="auto-style1"><br>
+                    <br>Implemented a banking application based on the object-oriented concept of C# .NET. The application consists of eleven classes, two structs, one interface and two Enums coupled in varying degrees of tightness. The Bank class was the main driver of the application. It has a collection of Accounts and Person that is initialize appropriately in the static constructor. The entire system was implemented in Visual Studio.
+                </p>
+                <P class="clearBoth">
+                    <br><h2><u><b>SRS Document for a Mobile App</b></u></h2>
+                    <img src="images/img3.JPG" width="560" height="345" alt="project3" class="auto-style1"><br>
+                    <br>Prepared an SRS (Software Requirement Specification) for an app called "All You Can Cook". The document described how the software will work, stakeholders, all the functional and non-functional requirement, and diagrams to show the performance of the app.
+                </P>
 
   <% } else { %>
 
-    <div class="container mt-3">
-  <h2>Services</h2>
-  <p>The .table-dark class adds a black background to the table:</p>            
-  <table class="table table-dark">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+                <img src="images/img4.jpg" width="560" height="345" alt="services" class="auto-style1">
+                <p>
+                  <br><b>
+                        Web development<br>
+                        Programming<br>
+                        Software development<br>
+                        Software Designing<br>
+                        Software Testing<br>
+                        Software Implementing<br>
+                        Software Validating<br>
+                        Project Support Analyst<br> 
+                        Mobile App
+                      </b>
+                </p>
   <% } %>
 
 <% include partials/footer.ejs %>
