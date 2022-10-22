@@ -1,22 +1,14 @@
-
-// File Name: index.js
-// Student Name: Fatimah Binti Yasin
-// Student ID:  301193282
-// Date: Oct 8, 2022
-
 var express = require('express');
 var router = express.Router();
-let indexController = require('../controllers/index.controller')
+let controlerIndex = require('../controllers/index');
 
 /* GET home page. */
-router.get('/', indexController.home);
+router.get('/', controlerIndex.home);
 
-router.get('/about', indexController.about);
+/* GET About page avaulable on http://localhost:3000/about . */
+router.get('/about', controlerIndex.about);
 
-router.get('/projects', indexController.projects);
-
-router.get('/services', indexController.services);
-
-router.get('/contact', indexController.contact);
+/* GET Projects page. */
+router.get('/projects', controlerIndex.projects);
 
 module.exports = router;

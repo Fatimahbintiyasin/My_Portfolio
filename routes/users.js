@@ -1,29 +1,22 @@
-// File Name: users.js
-// Student Name: Fatimah Binti Yasin
-// Student ID:  301193282
-// Date: Oct 8, 2022
-
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let usersController = require('../controllers/user');
+let passport = require('passport');
 
 /* GET users listing. */
-router.get('/Fatimah', function(req, res, next) {
-  res.render(
-    'users', 
-    { 
-      title: 'Fatimah', 
-      name: 'Fatimah' 
-    }
-    );
+router.get('/', function(req, res, next) {  
+  res.render('users', { 
+    title: 'Users',
+    userName: req.user ? req.user.username : ''
+  });
 });
-router.get('/john', function(req, res, next) {
-  res.render(
-    'index', 
-    { 
-      title: 'John Smith', 
-      name: 'John Smith' 
-    }
-    );
-});
+
+router.get('/signup', usersController.renderSignup);
+router.post('/signup', usersController.signup);
+
+router.get('/signin', usersController.renderSignin);
+router.post('/signin', usersController.signin);
+
+router.get('/signout', usersController.signout);
 
 module.exports = router;
