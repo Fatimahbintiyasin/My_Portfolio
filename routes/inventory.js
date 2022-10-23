@@ -3,10 +3,6 @@ var router = express.Router();
 
 let inventoryController = require('../controllers/inventory');
 
-// Connect to our model
-let Inventory = require('../models/inventory');
-
-
 // helper function for guard purposes
 function requireAuth(req, res, next)
 {

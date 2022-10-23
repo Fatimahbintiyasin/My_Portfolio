@@ -11,4 +11,8 @@ router.get('/about', controlerIndex.about);
 /* GET Projects page. */
 router.get('/projects', controlerIndex.projects);
 
+/* GET Services page. */
+router.get('/services', controlerIndex.services);
+
+
 module.exports = router;
