@@ -6,7 +6,7 @@
 
 console.log("it goes to ther client-side.");
 
-if(getTitle == "Inventory List")
+if(getTitle == "Business Contact List")
 {
     let deleteButtons = document.querySelectorAll('.btn-danger');
         
@@ -22,14 +22,14 @@ if(getTitle == "Inventory List")
 }
 if(getTitle == "Sign-up Form")
 {
-    const confirm = document.querySelector('input[name=password_confirm]');
+    const confirm = document.querySelector('input[name=confirmPass]');
 
     confirm.addEventListener('change', onChange); 
 }
 
 function onChange() {
     const password = document.querySelector('input[name=password]');
-    const confirm = document.querySelector('input[name=password_confirm]');
+    const confirm = document.querySelector('input[name=confirmPass]');
     
     if (confirm.value === password.value) {
       confirm.setCustomValidity('');

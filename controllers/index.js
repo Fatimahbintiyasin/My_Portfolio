@@ -31,4 +31,4 @@ exports.contact = function (req, res, next) {
         title: 'Contact',
         userName: req.user ? req.user.username : '',
     });
-  }
+ }

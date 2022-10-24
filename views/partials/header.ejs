@@ -16,7 +16,7 @@ Date: Oct 8, 2022 -->
   </head>
   <body>
     <header>
-        <img src="images/logo.JPEG" width="150" height="100" alt="project1" class="auto-style1">
+        <img src="images/logo.JPEG" width="150" height="100" alt="logo" class="auto-style1">
         <h1>My Express Portfolio </h1>
     </header>
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -30,6 +30,7 @@ Date: Oct 8, 2022 -->
             <% } %>
             <i class="fas fa-home"></i>
                Home
+              </a>
           </a>
           </li>
           <li class="nav-item">
@@ -41,6 +42,7 @@ Date: Oct 8, 2022 -->
             <i class="fa-solid fa-address-card"></i>
             About Me
           </a>
+          </a>
           </li>
           <li class="nav-item">
             <% if(title == "Projects") { %>
@@ -49,7 +51,7 @@ Date: Oct 8, 2022 -->
               <a class="nav-link" href="/projects">
             <% } %>
             <i class="fa-solid fa-list-check"></i>
-              Projects
+              Projects </a>
             </a>
           </li>
           <li class="nav-item">
@@ -61,6 +63,7 @@ Date: Oct 8, 2022 -->
             <i class="fa-solid fa-laptop"></i>
             Services
           </a>
+          </a>
           </li>
           <li class="nav-item">
             <% if(title == "Contact") { %>
@@ -70,6 +73,7 @@ Date: Oct 8, 2022 -->
             <% } %>
             <i class="fa-solid fa-file-contract"></i>
             Contact
+          </a>
           </a>
           </li>    
           <li class="nav-item dropdown">

@@ -10,10 +10,10 @@ let UserSchema = mongoose.Schema(
             type: String,
             match: [/.+\@.+\..+/, "Please fill a valid e-mail address"]
         },
-        phone: {
+        phoneNum: {
             type: String,
-            validate: [(phone) => {
-                return phone && phone.length > 9;
+            validate: [(phoneNum) => {
+                return phoneNum && phoneNum.length > 9;
             }, 'Phone number should be longer']
         },
         username: {

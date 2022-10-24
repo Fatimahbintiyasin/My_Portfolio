@@ -53,7 +53,7 @@ module.exports.renderSignup = function(req, res, next) {
 };
 
 module.exports.signup = function(req, res, next) {
-  if (!req.user && req.body.password === req.body.password_confirm) {
+  if (!req.user && req.body.password === req.body.confirmPass) {
     console.log(req.body);
 
     let user = new User(req.body);

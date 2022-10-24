@@ -33,7 +33,7 @@ module.exports.displayEditPage = (req, res, next) => {
             //show the edit view
             res.render('business/add_edit', {
                 title: 'Edit Contact', 
-                item: userToEdit,
+                user: userToEdit,
                 userName: req.user ? req.user.username : ''
             })
         }
@@ -49,11 +49,11 @@ module.exports.processEditPage = (req, res, next) => {
         _id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        phone: req.body.phone,
+        phoneNum: req.body.phoneNum,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
-        password_confirm: req.body.password_confirm
+        confirmPass: req.body.confirmPass
     });
 
     businessContactsModel.updateOne({_id: id}, updatedUser, (err) => {
@@ -89,7 +89,6 @@ module.exports.performDelete = (req, res, next) => {
             res.redirect('/business/list');
         }
     });
-
 }
 
 
@@ -111,11 +110,11 @@ module.exports.processAddPage = (req, res, next) => {
         _id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        phone: req.body.phone,
+        phoneNum: req.body.phoneNum,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
-        password_confirm: req.body.password_confirm
+        confirmPass: req.body.confirmPass
     });
 
     businessContactsModel.create(newUser, (err, item) =>{
@@ -126,7 +125,6 @@ module.exports.processAddPage = (req, res, next) => {
         }
         else
         {
-            // refresh the book list
             console.log(newUser);
             res.redirect('/business/list');
         }

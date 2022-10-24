@@ -24,18 +24,18 @@
 
                 <!-- Repeatable Template Row -->
 
-                <% for(let count = 0; count < businessContactsList.length; count++) { %>
+                <% for(let count = 0; count < BusinessContactsList.length; count++) { %>
                     <tr>
-                        <td class="text-center"><%= businessContactsList[count].name %></td>
-                        <td class="text-center"><%= businessContactsList[count].phone %></td>
-                        <td class="text-center"><%= businessContactsList[count].email %></td>
+                        <td class="text-center"><%= BusinessContactsList[count].fullname %></td>
+                        <td class="text-center"><%= BusinessContactsList[count].phone %></td>
+                        <td class="text-center"><%= BusinessContactsList[count].email %></td>
 
                         <td class="text-center">
-                            <a href="/business/edit/<%= businessContactsList[count]._id %>" class="btn btn-primary btn-sm">
+                            <a href="/business/edit/<%= BusinessContactsList[count]._id %>" class="btn btn-primary btn-sm">
                             <i class="fas fa-pencil-alt"></i></a>
                         </td>
                         <td class="text-center">
-                            <a href="/business/delete/<%= businessContactsList[count]._id %>" class="btn btn-danger btn-sm">
+                            <a href="/business/delete/<%= BusinessContactsList[count]._id %>" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
