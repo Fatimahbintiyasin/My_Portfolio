@@ -1,3 +1,9 @@
+// File Name: user.js
+// Student Name: Fatimah Binti Yasin
+// Student ID:  301193282
+// Date: Oct 24, 2022
+
+
 let User = require('../models/user');
 let passport = require('passport');
 

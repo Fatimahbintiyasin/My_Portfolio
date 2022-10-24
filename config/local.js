@@ -1,3 +1,9 @@
+// File Name: local.js
+// Student Name: Fatimah Binti Yasin
+// Student ID:  301193282
+// Date: Oct 24, 2022
+
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');

@@ -1,4 +1,9 @@
-<%- include ../partials/header.ejs %>
+<%- include('../partials/header.ejs') %>
+
+<!-- File Name: list.ejs
+Student Name: Fatimah Binti Yasin
+Student ID:  301193282
+Date: Oct 24, 2022 -->
 
   <!-- Main Content -->
   <main class="container">
@@ -9,7 +14,10 @@
             <a href="/business/add" class="btn btn-primary align-self-end" role="button">
                 <i class="fas fa-plus-circle"></i> 
                 Add a new Contact
-            </a>                
+            </a> 
+            <br>
+            <br>
+
         </div>
 
         <div class="table-responsive">
@@ -26,8 +34,8 @@
 
                 <% for(let count = 0; count < BusinessContactsList.length; count++) { %>
                     <tr>
-                        <td class="text-center"><%= BusinessContactsList[count].fullname %></td>
-                        <td class="text-center"><%= BusinessContactsList[count].phone %></td>
+                        <td class="text-center"><%= BusinessContactsList[count].fullName %></td>
+                        <td class="text-center"><%= BusinessContactsList[count].phoneNum %></td>
                         <td class="text-center"><%= BusinessContactsList[count].email %></td>
 
                         <td class="text-center">
@@ -44,4 +52,4 @@
         </div>
     </div>
   </main>
-<%- include ../partials/footer.ejs %>
+  <%- include('../partials/footer.ejs') %>

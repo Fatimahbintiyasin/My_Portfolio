@@ -1,3 +1,9 @@
+// File Name: db.js
+// Student Name: Fatimah Binti Yasin
+// Student ID:  301193282
+// Date: Oct 24, 2022
+
+
 //In real project, never expose your credential in your code
 
 let atlasDB = "mongodb+srv://dbuser:xHuM6zLdF9AJ3Try@cluster005.i0tymby.mongodb.net/products?retryWrites=true&w=majority";
