@@ -10,6 +10,12 @@ let UserSchema = mongoose.Schema(
             type: String,
             match: [/.+\@.+\..+/, "Please fill a valid e-mail address"]
         },
+        phone: {
+            type: String,
+            validate: [(phone) => {
+                return phone && phone.length > 9;
+            }, 'Phone number should be longer']
+        },
         username: {
             type: String,
             unique: true,
@@ -25,12 +31,6 @@ let UserSchema = mongoose.Schema(
         salt: {
             type: String
         },
-        provider: {
-            type: String,
-            required: 'Provider is required'
-        },
-        providerId: String,
-        providerData: {},
         created: {
             type: Date,
             default: Date.now

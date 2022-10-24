@@ -2,7 +2,7 @@ let User = require('../models/user');
 let passport = require('passport');
 
 function getErrorMessage(err) {
-  console.log("===> Erro: " + err);
+  console.log("===> Error: " + err);
   let message = '';
 
   if (err.code) {
@@ -31,7 +31,7 @@ module.exports.renderSignin = function(req, res, next) {
     });
   } else {
     console.log(req.user);
-    return res.redirect('/');
+    return res.redirect('/business/list');
   }
 };
 
@@ -48,7 +48,7 @@ module.exports.renderSignup = function(req, res, next) {
     });
 
   } else {
-    return res.redirect('/');
+    return res.redirect('/business/list');
   }
 };
 
@@ -74,24 +74,32 @@ module.exports.signup = function(req, res, next) {
       }
       req.login(user, (err) => {
         if (err) return next(err);
-        return res.redirect('/');
+        return res.redirect('/business/list');
       });
     });
   } else {
-    return res.redirect('/');
+    return res.redirect('/business/list');
   }
 };
 
 module.exports.signout = function(req, res, next) {
-  req.logout();
-  res.redirect('/');
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/users/signin');
+  });
 };
 
 module.exports.signin = function(req, res, next){
   passport.authenticate('local', {   
-    successRedirect: req.session.url || '/',
+    successRedirect: req.session.url || '/business/list',
     failureRedirect: '/users/signin',
     failureFlash: true
   })(req, res, next);
   delete req.session.url;
+}
+exports.user = function (req, res, next) {
+  res.render('users', {
+      title: 'User',
+      userName: req.user ? req.user.username : '',
+  });
 }

@@ -26,9 +26,9 @@ exports.services = function(req, res, next) {
       userName: req.user ? req.user.username : '' 
     });
 }
-exports.services = function(req, res, next) {
-    res.render('contact', { 
-      title: 'Contact',
-      userName: req.user ? req.user.username : '' 
+exports.contact = function (req, res, next) {
+    res.render('contact', {
+        title: 'Contact',
+        userName: req.user ? req.user.username : '',
     });
-}
+  }
