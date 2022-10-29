@@ -26,17 +26,13 @@ function requireAuth(req, res, next)
 router.get('/list', businessController.businessContactsList);
 
 // Routers for edit
-router.get('/edit/:id', requireAuth, businessController.displayEditPage);
-router.post('/edit/:id', requireAuth, businessController.processEditPage);
+router.post('/edit/:id',  businessController.processEdit);
 
 // Delete
-router.get('/delete/:id', requireAuth, businessController.performDelete);
+router.get('/delete/:id',  businessController.performDelete);
 
-
-/* GET Route for displaying the Add page - CREATE Operation */
-router.get('/add', requireAuth, businessController.displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', requireAuth, businessController.processAddPage);
+router.post('/add',  businessController.processAdd);
 
 module.exports = router;

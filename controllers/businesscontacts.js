@@ -6,47 +6,46 @@
 // create a reference to the model
 let businessContactsModel = require('../models/user');
 
+function getErrorMessage(err) {
+    if (err.errors) {
+    for (let errName in err.errors) {
+    if (err.errors[errName].message) return err.errors[errName].message;
+    }
+    }
+    if (err.message) {
+    return err.message;
+    } else {
+    return 'Unknown server error';
+    }
+    };
+
 module.exports.businessContactsList = function(req, res, next) {  
     businessContactsModel.find((err, businessContactsList) => {
         if(err)
         {
-            return console.error(err);
+             console.error(err);
+
+             res.status(400).json(
+                {
+                    success: true,
+                    message: getErrorMessage(err)
+                })
         }
         else
         {
-            res.render('business/list', {
-                title: 'Business Contacts',
-                BusinessContactsList : businessContactsList,
-                userName: req.user ? req.user.username : ''
-            })            
+            // res.render('business/list', {
+            //     title: 'Business Contacts',
+            //     BusinessContactsList : businessContactsList,
+            //     userName: req.user ? req.user.username : ''
+            // })
+            res.json( businessContactsList);        
         }
     }).sort({firstName:1});
 }
 
-module.exports.displayEditPage = (req, res, next) => {
-    
-    let id = req.params.id;
-
-    businessContactsModel.findById(id, (err, userToEdit) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //show the edit view
-            res.render('business/add_edit', {
-                title: 'Edit Contact', 
-                user: userToEdit,
-                userName: req.user ? req.user.username : ''
-            })
-        }
-    });
-}
 
 
-module.exports.processEditPage = (req, res, next) => {
+module.exports.processEdit = (req, res, next) => {
 
     let id = req.params.id
 
@@ -65,13 +64,19 @@ module.exports.processEditPage = (req, res, next) => {
         if(err)
         {
             console.log(err);
-            res.end(err);
+            res.status(400).json(
+                {
+                    success: false,
+                    message: getErrorMessage(err)
+                })
         }
         else
         {
-            // console.log(req.body);
-            // refresh the contact list
-            res.redirect('/business/list');
+            res.status(200).json(
+                {
+                    success: true,
+                    message: "Item updated successfully"
+                })
         }
     });
 }
@@ -86,30 +91,25 @@ module.exports.performDelete = (req, res, next) => {
         if(err)
         {
             console.log(err);
-            res.end(err);
+            res.status(400).json(
+                {
+                    success: true,
+                    message: getErrorMessage(err)
+                })
         }
         else
         {
-            // refresh the contact list
-            res.redirect('/business/list');
+            res.status(200).json(
+                {
+                    success: true,
+                    message: "Item deleted successfully"
+                })
         }
     });
 }
 
 
-module.exports.displayAddPage = (req, res, next) => {
-
-    let newUser = businessContactsModel();
-
-    res.render('business/add_edit', {
-        title: 'Add a new Contact',
-        user: newUser,
-        userName: req.user ? req.user.username : ''
-    })          
-
-}
-
-module.exports.processAddPage = (req, res, next) => {
+module.exports.processAdd = (req, res, next) => {
 
     let newUser = businessContactsModel({
         _id: req.body.id,
@@ -126,12 +126,17 @@ module.exports.processAddPage = (req, res, next) => {
         if(err)
         {
             console.log(err);
-            res.end(err);
+            res.status(400).json(
+                {
+                    success: true,
+                    message: getErrorMessage(err)
+                })
         }
         else
         {
             console.log(newUser);
-            res.redirect('/business/list');
+            // res.redirect('/business/list');
+            res.status(200).json( item);
         }
     });
     
