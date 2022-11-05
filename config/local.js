@@ -1,15 +1,35 @@
-// File Name: local.js
-// Student Name: Fatimah Binti Yasin
-// Student ID:  301193282
-// Date: Oct 24, 2022
-
-
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const ExtractJWT = require('passport-jwt').ExtractJwt;
+const JWTstrategy = require('passport-jwt').Strategy;
 const User = require('../models/user');
+const config = require('./config');
 
 module.exports = function() {
-    passport.use(new LocalStrategy((username, password, done)=>{
+
+    passport.use(
+        'tokencheck',
+        new JWTstrategy(
+            {
+                secretOrKey: config.SECRETKEY,
+                jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken()
+            },
+            async (token, done) => {
+                try {
+                    console.log(token);
+                    return done(null, token.payload);
+                } catch (error) {
+                    console.log(error);
+                    done(error);
+                }
+            }
+        )
+    );
+
+    
+    passport.use(
+        'login',
+        new LocalStrategy((username, password, done)=>{
         
         User.findOne({username: username}, (err, user)=>{
             console.log('=====> LocalStrategy');

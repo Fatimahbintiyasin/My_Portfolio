@@ -33,12 +33,7 @@ module.exports.businessContactsList = function(req, res, next) {
         }
         else
         {
-            // res.render('business/list', {
-            //     title: 'Business Contacts',
-            //     BusinessContactsList : businessContactsList,
-            //     userName: req.user ? req.user.username : ''
-            // })
-            res.json( businessContactsList);        
+            res.status(200).json( businessContactsList);        
         }
     }).sort({firstName:1});
 }
@@ -135,7 +130,6 @@ module.exports.processAdd = (req, res, next) => {
         else
         {
             console.log(newUser);
-            // res.redirect('/business/list');
             res.status(200).json( item);
         }
     });
