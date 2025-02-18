@@ -14,7 +14,7 @@ This is my Personal Portfolio Website built using Express.js and EJS as the temp
 ## Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/express-portfolio.git
+   git clone https://github.com/your-username/My_Portfolio.git
    ```
 2. Install dependencies:
    ```sh
